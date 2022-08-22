@@ -35,9 +35,6 @@ rm nvim-linux64.tar.gz
 echo '
 alias vim="/home/ubuntu/nvim-linux64/bin/nvim"
 export EDITOR="vim"
- 
-source /usr/share/fzf/key-bindings.zsh  # Arch
-source /usr/share/fzf/completion.zsh    # Arch
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND="fd . $HOME"
