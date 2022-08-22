@@ -11,7 +11,7 @@ sudo apt update -y && sudo apt upgrade -y
 
 # Install apt packages
 sudo apt install fzf fd-find stow -y
-cd ~/.server_workspace/
+cd ~/.remote_server_workspace/
 stow -vSt ~ nvim
 cd ~
 
