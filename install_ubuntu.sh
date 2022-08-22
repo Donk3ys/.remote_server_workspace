@@ -10,7 +10,7 @@ cd ~
 sudo apt update -y && sudo apt upgrade -y
 
 # Install apt packages
-sudo apt install git stow -y
+sudo apt install fzf fd-find stow -y
 cd ~/.server_workspace/
 stow -vSt ~ nvim
 cd ~
@@ -31,9 +31,20 @@ wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.tar.
 tar xzvf nvim-linux64.tar.gz
 rm nvim-linux64.tar.gz
 
-# Add nvim as alias of vim
-echo "alias vim='/home/ubuntu/nvim-linux64/bin/nvim'" >> .bashrc
-echo "export EDITOR='vim'" >> .bashrc
+# Add alias and envs
+echo '
+alias vim="/home/ubuntu/nvim-linux64/bin/nvim"
+export EDITOR="vim"
+ 
+source /usr/share/fzf/key-bindings.zsh  # Arch
+source /usr/share/fzf/completion.zsh    # Arch
+
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND="fd . $HOME"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -t d . $HOME --type f --hidden --follow --exclude .git"
+' >> .bashrc
+
 source ~/.bashrc
 
 echo "Installing Finished"
