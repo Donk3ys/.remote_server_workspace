@@ -10,7 +10,7 @@ cd ~
 sudo apt update -y && sudo apt upgrade -y
 
 # Install apt packages
-sudo apt install fzf fd-find stow -y
+sudo apt install fzf fd-find stow gcc g++ -y
 cd ~/.remote_server_workspace/
 stow -vSt ~ nvim
 cd ~
@@ -18,6 +18,7 @@ cd ~
 # Install ripgrep
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
 sudo dpkg -i ripgrep_13.0.0_amd64.deb
+rm ripgrep_13.0.0_amd64.deb
 
 # Install lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')
